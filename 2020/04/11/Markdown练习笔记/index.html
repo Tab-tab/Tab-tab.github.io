@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/04/11/image/totoro.gif">
 <meta property="article:published_time" content="2020-04-10T16:38:09.317Z">
-<meta property="article:modified_time" content="2020-10-09T08:55:57.111Z">
+<meta property="article:modified_time" content="2020-11-12T03:09:51.392Z">
 <meta property="article:author" content="睡觉前吃只鸡">
 <meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
@@ -172,20 +172,18 @@
         <p> Markdown的学习记录</p>
 <a id="more"></a>
 
-<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h1><p>Markdown标题格式：</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown标题格式：</p>
 <blockquote>
 <ol>
 <li>使用 <strong>内容 + 回车 + ====</strong>，作为一级标题，使用 <strong>内容 + 回车 + —</strong>，作为二级标题</li>
 <li>使用1 <code>~</code> 6个#来表示一 <code>~</code> 六级标题：<strong># + 空格间隔 + 内容</strong></li>
 </ol>
 </blockquote>
-<h1 id="段落"><a href="#段落" class="headerlink" title="段落"></a><strong>段落</strong></h1><p>Markdown段落格式：  </p>
+<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>Markdown段落格式：  </p>
 <blockquote>
 <p>没有特殊格式，直接编写，段落的换行可以使用两个以上空格加回车的形式来表示，也可用一个空行来表示重新开始的段落。</p>
 </blockquote>
-<p><strong>字体</strong></p>
-<p>===</p>
-<h3 id="斜体文本"><a href="#斜体文本" class="headerlink" title="斜体文本"></a>斜体文本</h3><p>斜体文本格式：</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h3 id="斜体文本"><a href="#斜体文本" class="headerlink" title="斜体文本"></a>斜体文本</h3><p>斜体文本格式：</p>
 <blockquote>
 <ol>
 <li><em>斜体内容</em>(1个星号<em>+斜体内容+1个星号</em>)</li>
@@ -222,9 +220,7 @@
 <blockquote>
 <p>[^需要注明的文本]<br>例子：<br>一段文字，[^R]<br>[^R]: 这是一个字母R的标注!</p>
 </blockquote>
-<p><strong>列表</strong></p>
-<p>===</p>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>无序列表格式：  </p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>无序列表格式：  </p>
 <blockquote>
 <p>使用星号(*)、加号(+)或是减号(-)作为识别标记，空格之后再加内容<br>例：</p>
 <ul>
@@ -235,7 +231,7 @@
 </blockquote>
 <h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>有序列表格式：  </p>
 <blockquote>
-<p>使用数字加.号的形式作为识别标记<br>例：  </p>
+<p>使用数字加.号的形式作为识别标记<br>例：</p>
 <ol>
 <li>第一项</li>
 <li>第二项</li>
@@ -245,81 +241,106 @@
 <h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h3><p>列表嵌套格式：</p>
 <blockquote>
 <p>在分级列表前添加四个空格，后跟无序列表格式或者有序列表格式</p>
-<p> 例:</p>
-<ol>
-<li>第一项<ul>
-<li>1.1 第一项二级列表</li>
-</ul>
-</li>
-<li>第二项  <ul>
-<li>2.1 第二项二级列表</li>
-</ul>
-</li>
-</ol>
+<p>例:</p>
 </blockquote>
-<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a><strong>区块</strong></h1><p>区块格式：  </p>
+<pre><code>&gt;   1. 第一项
+&gt;     - 1.1 第一项二级列表
+&gt;
+&gt;   2. 第二项
+&gt;     - 2.1 第二项二级列表</code></pre><h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><p>区块格式：</p>
 <blockquote>
 <ol>
 <li>在段落开头使用 &gt; 符号，后跟一个空格  </li>
 <li>区块可以嵌套一个 &gt; 符号是最外层，两个 &gt; &gt; 符号是第一层嵌套，以此类推</li>
 </ol>
-<hr>
-<ol start="3">
-<li>区块中使用列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">&gt;&gt; 第一层嵌套区块</span><br><span class="line">&gt;&gt; 1. 第一项</span><br><span class="line">&gt;&gt; 2. 第二项</span><br><span class="line">&gt;&gt;     - 2.1 第二项二级列表</span><br></pre></td></tr></table></figure>
-</li>
+<p><code>3.</code> 区块中使用列表</p>
+<p>例：<br>第一层嵌套区块</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
 </ol>
-<hr>
-<ol start="4">
-<li>列表中使用区块<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">1. 第一项</span><br><span class="line">2. 第二项</span><br><span class="line">    &gt; - 2.1 第二项二级列表</span><br><span class="line">    &gt; - 2.2 第二项二级列表</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<blockquote>
+<pre><code>-2.1 第二项二级列表</code></pre><p><code>4.</code> 列表中使用区块</p>
 </blockquote>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><p>代码格式：</p>
+<p>例：</p>
+</blockquote>
+<pre><code>&gt;  1. 第一项
+&gt;  2. 第二项
+&gt;
+&gt;&gt;      - 2.1 第二项二级列表
+&gt;&gt;      - 2.2 第二项二级列表</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>代码格式：</p>
 <blockquote>
 <ol>
-<li><p>段落上的函数或者部分代码可以插入到两个反引号(<code>)之间
-例：</code>printf()<code># 函数</code>math.cell()` # 函数</p>
-</li>
-<li><p>代码区块<br>例：<br>$(document).ready(function () {<br> alert(‘js语言’)；<br> });</p>
-</li>
-<li><p>使用```包裹一段代码,可以选择指定代码语言<br>例:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'js语言'</span>)；</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
+<li>段落上的函数或者部分代码可以插入到两个反引号(`)之间<br>例：</li>
 </ol>
+<p><code>printf()</code>    # 函数</p>
+<p><code>math.cell()</code> # 函数</p>
+<p><code>2.</code> 代码区块</p>
+<p>例：</p>
 </blockquote>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a><strong>链接</strong></h1><blockquote>
-<p>链接格式： </p>
+<pre><code>&gt; $(document).ready(function () {
+&gt;    alert(&apos;js语言&apos;)；  
+&gt;    });
+&gt;</code></pre><blockquote>
+<p><code>3.</code> 使用```包裹一段代码,可以选择指定代码语言</p>
+<p>例:</p>
+</blockquote>
+<pre><code>&gt; javascript
+&gt; $(document).ready(function () {
+&gt;     alert(&apos;js语言&apos;)；
+&gt; });</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><blockquote>
+<p>链接格式：</p>
 <ol>
 <li><p><a href="链接地址">链接名称</a></p>
 </li>
 <li><p>&lt;链接地址&gt;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">[My Blog](http:&#x2F;&#x2F;localhost:4000&#x2F;)</span><br><span class="line">&lt;http:&#x2F;&#x2F;localhost:4000&#x2F;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>高级链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">一段文字[百度一下][百度]</span><br><span class="line">另一段文字[My Blog][Blog]</span><br><span class="line">文档结尾为变量赋值</span><br><span class="line">[百度]: https:&#x2F;&#x2F;www.baidu.com</span><br><span class="line">[Blog]: http:&#x2F;&#x2F;localhost:4000&#x2F;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>例：</p>
 </blockquote>
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h1><blockquote>
-<p>图片格式：<br><code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code><br>例：  </p>
-<ul>
-<li><img src="../image/totoro.gif" alt="totoro 头像" title="龙猫"></li>
-</ul>
+<pre><code>&gt; [My Blog](http://localhost:4000/)
+&gt; &lt;http://localhost:4000/&gt;
+&gt; </code></pre><blockquote>
+<p><code>3.</code> 高级链接</p>
+<p>例：</p>
 </blockquote>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h1><blockquote>
-<p>表格格式：<br>使用<code>|</code>来分割不同的单元格，使用<code>-</code>来分隔表头和其他行</p>
-<ul>
-<li>-: 设置内容和标题栏居右对齐</li>
-<li>:- 设置内容和标题栏居左对齐</li>
-<li>:-: 设置内容和标题栏居中对齐<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 表头 | 表头 | 表头 |  </span><br><span class="line">| :--- | ---: |:---:|</span><br><span class="line">| 单元格 |  单元格 | 单元格 |</span><br><span class="line">| 单元格 |  单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+<pre><code>&gt; 一段文字[百度一下][百度]
+&gt; 另一段文字[My Blog][Blog]
+&gt; 文档结尾为变量赋值
+&gt; [百度]: https://www.baidu.com
+&gt; [Blog]: http://localhost:4000/</code></pre><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><blockquote>
+<p>图片格式：<br><code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code><br>例：<br><img src="../image/totoro.gif" alt="totoro 头像" title="龙猫"></p>
 </blockquote>
-</li>
-</ul>
-</blockquote>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>===</p>
 <blockquote>
+<p>表格格式：<br>使用<code>|</code>来分割不同的单元格，使用<code>-</code>来分隔表头和其他行</p>
+<p>-: 设置内容和标题栏居右对齐</p>
+<p>:- 设置内容和标题栏居左对齐</p>
+<p>:-: 设置内容和标题栏居中对齐</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">表头</th>
+<th align="right">表头</th>
+<th align="center">表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+</blockquote>
 <p>例：<br>| 表头 | 表头 | 表头 |<br>| :— | —: |:—:|<br>| 单元格 |  单元格 | 单元格 |<br>| 单元格 |  单元格 | 单元格 |</p>
 </blockquote>
+<h2 id="支持的-HTML-元素"><a href="#支持的-HTML-元素" class="headerlink" title="支持的 HTML 元素"></a>支持的 HTML 元素</h2><p>目前支持的 HTML 元素有：<code>&lt;kbd&gt;</code> <code>&lt;b&gt;</code> <code>&lt;i&gt;</code> <code>&lt;em&gt;</code> <code>&lt;sup&gt;</code> <code>&lt;sub&gt;</code> <code>&lt;br&gt;</code></p>
 
       
 
@@ -355,57 +376,6 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/11/Markdown%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -414,7 +384,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/11/08/%E6%97%A5%E8%AE%B0-2020/shell%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/11/08/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/shell%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -447,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#标题"><span class="toc-number">1.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#段落"><span class="toc-number">2.</span> <span class="toc-text">段落</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#斜体文本"><span class="toc-number">2.0.1.</span> <span class="toc-text">斜体文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粗体文本"><span class="toc-number">2.0.2.</span> <span class="toc-text">粗体文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粗斜体文本"><span class="toc-number">2.0.3.</span> <span class="toc-text">粗斜体文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分隔线"><span class="toc-number">2.0.4.</span> <span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除线"><span class="toc-number">2.0.5.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下划线"><span class="toc-number">2.0.6.</span> <span class="toc-text">下划线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标注"><span class="toc-number">2.0.7.</span> <span class="toc-text">标注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无序列表"><span class="toc-number">2.0.8.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有序列表"><span class="toc-number">2.0.9.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表嵌套"><span class="toc-number">2.0.10.</span> <span class="toc-text">列表嵌套</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#区块"><span class="toc-number">3.</span> <span class="toc-text">区块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-number">5.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片"><span class="toc-number">6.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表格"><span class="toc-number">7.</span> <span class="toc-text">表格</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#标题"><span class="toc-number">1.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#段落"><span class="toc-number">2.</span> <span class="toc-text">段落</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体"><span class="toc-number">3.</span> <span class="toc-text">字体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#斜体文本"><span class="toc-number">3.1.</span> <span class="toc-text">斜体文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粗体文本"><span class="toc-number">3.2.</span> <span class="toc-text">粗体文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粗斜体文本"><span class="toc-number">3.3.</span> <span class="toc-text">粗斜体文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分隔线"><span class="toc-number">3.4.</span> <span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除线"><span class="toc-number">3.5.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下划线"><span class="toc-number">3.6.</span> <span class="toc-text">下划线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标注"><span class="toc-number">3.7.</span> <span class="toc-text">标注</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">4.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无序列表"><span class="toc-number">4.1.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有序列表"><span class="toc-number">4.2.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表嵌套"><span class="toc-number">4.3.</span> <span class="toc-text">列表嵌套</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区块"><span class="toc-number">5.</span> <span class="toc-text">区块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">6.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接"><span class="toc-number">7.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-number">8.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表格"><span class="toc-number">9.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支持的-HTML-元素"><span class="toc-number">10.</span> <span class="toc-text">支持的 HTML 元素</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -573,11 +543,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Software Test</a>
+                <a href="javascript:void(0)" class="js-tag color1">jokes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Software Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Test Case</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Test Method</a>
               </li>
             
             <div class="clearfix"></div>
@@ -628,7 +610,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">这是一个美丽的夜晚！</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">个人学习记录网页。</div>
   	  	
     	</section>
     

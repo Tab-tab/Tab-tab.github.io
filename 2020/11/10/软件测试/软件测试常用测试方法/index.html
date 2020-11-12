@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Shell 基础 | Note</title>
+  <title>软件测试常用测试方法 | Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shell学习记录">
+  <meta name="description" content="软件测试-测试用例和测试方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell 基础">
-<meta property="og:url" content="http://yoursite.com/2020/11/08/%E6%97%A5%E8%AE%B0-2020/shell%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="软件测试常用测试方法">
+<meta property="og:url" content="http://yoursite.com/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Note">
-<meta property="og:description" content="Shell学习记录">
+<meta property="og:description" content="软件测试-测试用例和测试方法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-08T08:20:09.549Z">
-<meta property="article:modified_time" content="2020-10-09T08:55:54.039Z">
+<meta property="article:published_time" content="2020-11-10T02:42:30.313Z">
+<meta property="article:modified_time" content="2020-11-12T07:49:34.351Z">
 <meta property="article:author" content="睡觉前吃只鸡">
-<meta property="article:tag" content="Shell">
+<meta property="article:tag" content="Software Test">
+<meta property="article:tag" content="Test Case">
+<meta property="article:tag" content="Test Method">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Note" type="application/atom+xml">
@@ -147,100 +149,233 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-日记-2020/shell基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-软件测试/软件测试常用测试方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Shell 基础
+      软件测试常用测试方法
     </h1>
   
 
         
-        <a href="/2020/11/08/%E6%97%A5%E8%AE%B0-2020/shell%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-11-08T08:20:09.549Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
+        <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-11-10T02:42:30.313Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Shell学习记录</p>
+        <p>软件测试-测试用例和测试方法</p>
 <a id="more"></a>
-<h2 id="Shell变量"><a href="#Shell变量" class="headerlink" title="Shell变量"></a>Shell变量</h2><p>变量定义规范：</p>
-<ol>
-<li>变量名和等号之间不能有空格</li>
-<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</li>
-<li>中间不能有空格，可以使用下划线（_）。</li>
-<li>不能使用标点符号。</li>
-<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
-</ol>
-<hr>
-<h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3><p>在变量前面加美元符号$,变量名外加大括号。</p>
-<pre><code>例：
-    a=1
-    echo $a
-    echo ${a}  ---建议使用这种方式</code></pre><hr>
-<h3 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h3><p>使用 readonly 命令可以将变量定义为只读变量，只读变量的值不能被改变。</p>
-<pre><code>例：
-    My_name=Tab
-    readonly My_name
-    My_name=TTTab
-    结果： /bin/sh: NAME: This variable is  read only.</code></pre><hr>
-<h3 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h3><p>使用 unset 命令可以删除变量，变量被删除后不能再次使用。unset 命令不能删除只读变量。</p>
-<pre><code>例：
-    My_name=Tab
-    unset My_name
-    ehco ${My_name}
-    （没有任何形式上的输出。）</code></pre><hr>
-<h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3><p>变量类型：</p>
-<pre><code>1. 局部变量 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。
-2. 环境变量 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。
-3. shell变量 shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行。</code></pre><hr>
-<h2 id="Shell字符串"><a href="#Shell字符串" class="headerlink" title="Shell字符串"></a>Shell字符串</h2><p>字符串可以用单引号，也可以用双引号，也可以不用引号。</p>
-<pre><code>1. 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；
-2. 单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。
-3. 双引号里可以有变量
-4. 双引号里可以出现转义字符（需要加 -e ）
 
-例：
-    str=&quot;false&quot;
-    ans=&quot;Hello, I know you are \&quot;${str}\&quot;\!&quot;
-    echo -e ${ans}</code></pre><h3 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h3><pre><code>例：
-    a=&quot;I have dream&quot;
-    b=&quot;The World Peace&quot;
-    str=&quot;${a}: ${b}.&quot;
-    echo ${str}</code></pre><h3 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h3><p>在变量前加 # 符号</p>
-<pre><code>例：
-    a=&quot;I have dream&quot;
-    echo ${#a}
-    12</code></pre><h3 id="提取字符串"><a href="#提取字符串" class="headerlink" title="提取字符串"></a>提取字符串</h3><p>在变量后使用 :n1:n2 符号</p>
-<pre><code>例：
-    a=&quot;I have dream&quot;
-    echo ${a:2:5}
-    have</code></pre><h3 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h3><p>使用反引号``` ,如查找字符i或o的位置,从1开始编号，查找不到输出0。</p>
-<pre><code>例:
-    a=&quot;I have dream&quot;
-    echo `expr index &quot;${a}&quot; he`
-    3</code></pre><h2 id="Shell数组"><a href="#Shell数组" class="headerlink" title="Shell数组"></a>Shell数组</h2><p>用括号来表示数组，数组元素用”空格”符号分割开。</p>
-<pre><code>例：
-    array=(1 2 3 4 5)
-    单独定义数组
-        array[0]=1
-        array[1]=2
-        array[2]=3
-        array[3]=4
-        array[4]=5</code></pre><h3 id="读取数组"><a href="#读取数组" class="headerlink" title="读取数组"></a>读取数组</h3><p>读取数组元素值的一般格式是：</p>
-<pre><code>${数组名[下标]}</code></pre><p>使用 @ 符号可以获取数组中的所有元素</p>
-<pre><code>${数组名[@]}</code></pre><h3 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h3><pre><code>数组变量前加 # 符号。</code></pre><h2 id="Shell注释"><a href="#Shell注释" class="headerlink" title="Shell注释"></a>Shell注释</h2><pre><code>以 # 开头的行就是注释，会被解释器忽略，通过每一行加一个 # 号设置多行注释</code></pre><h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>EOF 可以使用其他符号（如：! ）</p>
-<p>格式：</p>
-<pre><code>:&lt;&lt;EOF
-注释内容...
-注释内容...
-注释内容...
-EOF</code></pre>
+<h2 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h2><p>定义：</p>
+<blockquote>
+<p>把软件(程序)当作一个有输入与输出的黑匣子，它把程序当作一个输入域到输出域的映射，只要输入的数据能输出预期的结果即可，不必关心程序内部怎么实现。</p>
+</blockquote>
+<h2 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h2><p>定义：</p>
+<blockquote>
+<p>指测试人员了解软件的逻辑结构、路径、与运行过程，在测试时，按照程序的执行路径得出结果。</p>
+</blockquote>
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><p>定义：</p>
+<blockquote>
+<p>通过使用在测试计划中确定的测试技术，对于已确定的测试条件逐步推敲，精炼而设计出来的重点说明如何具体操作产生何种结果的文档<br>其应具有可重复性、可验证性和需求可追踪性</p>
+</blockquote>
+<h3 id="测试用例设计关键点"><a href="#测试用例设计关键点" class="headerlink" title="测试用例设计关键点"></a>测试用例设计关键点</h3><blockquote>
+<ol>
+<li>前提条件</li>
+<li>测试步骤</li>
+<li>测试数据</li>
+<li>预期结果</li>
+</ol>
+</blockquote>
+<h3 id="测试用例常用设计方法"><a href="#测试用例常用设计方法" class="headerlink" title="测试用例常用设计方法"></a>测试用例常用设计方法</h3><h4 id="等价类划分法"><a href="#等价类划分法" class="headerlink" title="等价类划分法"></a>等价类划分法</h4><p>定义：</p>
+<blockquote>
+<p>把程序的输入域划分成若干部分，然后从每个部分中选取少数代表性数据当作测试用例，每一类的代表性数据在测试中的作用等价于这一类中的其他值</p>
+</blockquote>
+<p>原则：</p>
+<blockquote>
+<ul>
+<li><p>如果输入条件规定了<strong>取值的范围或值的个数</strong>，则可确定<strong>一个有效等价类和二个无效等价类</strong></p>
+</li>
+<li><p>如果一个输入条件说明一个<strong>必须成立的情况</strong>，则可划分<strong>一个有效等价类和一个无效等价类</strong></p>
+</li>
+<li><p>如果输入条件规定了输入数据的一组可能的值，而且程序是用不同的方式处理每一种值，则可为每一种值划分一个有效等价类和一个无效等价类</p>
+</li>
+<li><p>如果我们确知，已划分的某等价类中的各元素(例子)在程序中的处理方式是不同的，则应据此将此等价类进一步划分成更小的等价类</p>
+</li>
+<li><p>在确立了等价类之后，建立等价类表，列出所有划分出的等价类</p>
+</li>
+<li><p>设计一个新的测试用例，使其尽可能多地覆盖尚未覆盖的有效等价类。重复这一步，最后使得所有有效等价类均被测试用例所覆盖（让每一个有效等价类都有用例对应）</p>
+</li>
+<li><p>设计一个新的测试用例，使其只覆盖一个无效等价类。重复这一步，使所有无效等价类均被覆盖（让每一个无效等价类都有一个唯一的用例应对）</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="边界值法"><a href="#边界值法" class="headerlink" title="边界值法"></a>边界值法</h3><p>定义：</p>
+<blockquote>
+<p>是一种补充等价划分的测试用例设计技术，它不是选择等价类的任意元素，而是选择等价类边界的测试用例</p>
+</blockquote>
+<p>原则：</p>
+<blockquote>
+<p>如果输入条件规定了取值范围，应以该范围的边界内及刚刚超范围的边界外的值作为测试用例</p>
+</blockquote>
+<p>小总结：</p>
+<blockquote>
+<p>等价类划分法和边界值法都是着重考虑输入条件，而不考虑输入条件的各种组合、输入条件之间的相互制约关系</p>
+</blockquote>
+<h3 id="因果图-判定表设计法"><a href="#因果图-判定表设计法" class="headerlink" title="因果图-判定表设计法"></a>因果图-判定表设计法</h3><p>定义:</p>
+<blockquote>
+<p>因果图法是一种利用图解法分析输入的各种组合情况的测试方法，考虑了输入条件的各种组合及输入条件之间的相互制约关系。其适合于描述多种条件的组合、产生多个相应动作的测试用例。<br>因果图使用一些简单的逻辑符号和直线将程序的因（输入）与果（输出）连接起来，一般原因用”<strong>c<sub>i</sub></strong>“表示,结果用”<strong>e<sub>i</sub></strong>“表示,它们之间有<strong>恒等</strong>、<strong>非(~)</strong>、<strong>或(∨)</strong>、<strong>与(∧)</strong>4种关系</p>
+<p>恒等：输出与输入保持一致</p>
+<p>非：输出是输入的取反</p>
+<p>或：任意输入中有一个输入为真，则输出为真</p>
+<p>与：任意输入中有一个输入为假，则输出为假</p>
+</blockquote>
+<p>判定表(Decision Table)：是分析和表达多逻辑条件下执行不同操作的工具。</p>
+<p>判定表通常由四部分组成：</p>
+<blockquote>
+<p>条件桩(Condition Stub)：列出了问题的所有条件，通常认为列出得条件的次序无关紧要。</p>
+<p>动作桩(Action Stub)：列出了问题规定可能采取的操作，这些操作的排列顺序没有约束。</p>
+<p>条件项(Condition Entry)：列出针对它左列条件的取值，在所有可能情况下的真假值。</p>
+<p>动作项(Action Entry)：列出在条件项的各种取值情况下应该采取的动作。</p>
+</blockquote>
+<h3 id="正交实验法"><a href="#正交实验法" class="headerlink" title="正交实验法"></a>正交实验法</h3><p>定义：</p>
+<blockquote>
+<p>正交实验设计法是从大量的实验点中挑选除适量的、有的代表性的点，应用依据迦罗卡瓦理论导出的”正交表”，合理的安排实验的一种科学的实验设计方法。</p>
+<p>指标：通常把判断实验结果优劣的标准叫做实验的指标。</p>
+<p>因子(因素Factor)：所有影响实验指标的条件。</p>
+<p>因子的状态(水平Level)： 影响实验因子的叫做因子的状态(因子变量的取值)。</p>
+</blockquote>
+<p>正交实验法设计步骤</p>
+<p>   <strong>1.</strong> 提取功能说明，构造因子——状态表</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">因子1</th>
+<th align="center">因子2</th>
+<th align="center">……</th>
+<th align="center">因子n</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">状态1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">状态2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">……</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">状态n</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>   <strong>2.</strong> 加权筛选，生成因素分析表</p>
+<blockquote>
+<p>计算各因子和状态的权值，删除一部分权值较小，即重要性较小的因子或状态，使最后生成的测试用例缩减到允许范围</p>
+</blockquote>
+<p>   <strong>3.</strong> 利用正交表构造测试数据集</p>
+<blockquote>
+<p>如果各个因子的状态树是不统一的，几乎不可能出现均匀的情况，必须首先用逻辑命令来组合各因子的状态，作出布尔图</p>
+<p>根据布尔图得到相应阶数的正交表</p>
+<p>依据因果图上根节点到叶子节点的顺序逐步替换正交表上的中间节点，得到最终的正交表</p>
+</blockquote>
+<p>   <strong>4.</strong> 利用正交表每行数据构造测试用例</p>
+<blockquote>
+<p>正交表的表示形式：Ln(t^c),其中L为正交表代号，n为行数(实验次数)，t为水平数，c为列数(因素数)<br>例如：L4(2^3),它表示需做4次实验，最多可观察3个因素，每个因素均为2水平(假设1为真2为假)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<h3 id="场景法"><a href="#场景法" class="headerlink" title="场景法"></a>场景法</h3><p>原理：</p>
+<blockquote>
+<p>现在的软件几乎都是用事件触发来控制流程的。事件触发时的情景形成了场景，而同一事件不同的触发顺序和处理结果就形成了事件流。这种在软件设计方面的思想可以引入到软件测试中，可以生动地描绘出事件触发的情景，有利于设计测试用例，同时使测试用例更容易理解和执行</p>
+</blockquote>
+<p>步骤:</p>
+<blockquote>
+<p>1.根据说明，描述出程序的基本流及各项备选流</p>
+<p>2.根据基本流和各项备选流生成不同的场景</p>
+<p>3.对每一个场景生成相应的测试用例</p>
+<p>4.对生成的所有用例重新复审，去掉多余的测试用例，测试用例确定后，对每一个测试用例确定测试数据值</p>
+</blockquote>
+<h2 id="测试用例综合设计"><a href="#测试用例综合设计" class="headerlink" title="测试用例综合设计"></a>测试用例综合设计</h2><ol>
+<li>测试用例项划分</li>
+</ol>
+<blockquote>
+<p>测试用例划分的经典方法是瀑布模型，从上到下，逐渐细分，大模块包括小模块，小模块包括更小的模块</p>
+<p>要从更多的角度切入系统，把系统切成一块一块的，来进行测试，从而确保测试大项的完整性</p>
+</blockquote>
+<p><strong>2.</strong> 切面设计</p>
+<blockquote>
+<p>功能点切面：最常见的切面，通常认为页面上的一个按钮就是一个功能点。根据功能的复杂程度，按每个功能进行用例的撰写</p>
+<p>隐含切面：完整业务流程的测试；从需求、业务角度进行编写</p>
+</blockquote>
+<p><strong>3.</strong> 功能点用例设计</p>
+<blockquote>
+<ul>
+<li><p>任何情况下都必须使用边界值分析方法，经验表明用这种方法设计出测试用例发现程序错误的能力最强</p>
+</li>
+<li><p>必要是用等价类划分方法补充一些测试用例</p>
+</li>
+<li><p>如果程序的功能说明中含有输入的组合情况，则一开始就可选用因果图法</p>
+</li>
+<li><p>如果程序业务复杂度比较高，则适当使用场景法补充一部分测试用例</p>
+</li>
+</ul>
+</blockquote>
+
       
 
       
@@ -253,7 +388,15 @@ EOF</code></pre>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shell</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Test Case</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Test Method</a>
         		</li>
       		
 		</ul>
@@ -275,57 +418,6 @@ EOF</code></pre>
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/08/%E6%97%A5%E8%AE%B0-2020/shell%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -334,18 +426,18 @@ EOF</code></pre>
   
 <nav id="article-nav">
   
-    <a href="/2020/11/08/%E6%97%A5%E8%AE%B0-2020/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E5%BE%85%E7%94%A8-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          软件测试理论基础
+          待用
         
       </div>
     </a>
   
   
-    <a href="/2020/04/11/Markdown%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Markdown</div>
+    <a href="/2020/11/08/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">软件测试理论基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -372,7 +464,7 @@ EOF</code></pre>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell变量"><span class="toc-number">1.</span> <span class="toc-text">Shell变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用变量"><span class="toc-number">1.1.</span> <span class="toc-text">使用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只读变量"><span class="toc-number">1.2.</span> <span class="toc-text">只读变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除变量"><span class="toc-number">1.3.</span> <span class="toc-text">删除变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量类型"><span class="toc-number">1.4.</span> <span class="toc-text">变量类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell字符串"><span class="toc-number">2.</span> <span class="toc-text">Shell字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拼接字符串"><span class="toc-number">2.1.</span> <span class="toc-text">拼接字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取字符串长度"><span class="toc-number">2.2.</span> <span class="toc-text">获取字符串长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提取字符串"><span class="toc-number">2.3.</span> <span class="toc-text">提取字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找字符串"><span class="toc-number">2.4.</span> <span class="toc-text">查找字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell数组"><span class="toc-number">3.</span> <span class="toc-text">Shell数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读取数组"><span class="toc-number">3.1.</span> <span class="toc-text">读取数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取数组的长度"><span class="toc-number">3.2.</span> <span class="toc-text">获取数组的长度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell注释"><span class="toc-number">4.</span> <span class="toc-text">Shell注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多行注释"><span class="toc-number">4.1.</span> <span class="toc-text">多行注释</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#黑盒测试"><span class="toc-number">1.</span> <span class="toc-text">黑盒测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#白盒测试"><span class="toc-number">2.</span> <span class="toc-text">白盒测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试用例"><span class="toc-number">3.</span> <span class="toc-text">测试用例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用例设计关键点"><span class="toc-number">3.1.</span> <span class="toc-text">测试用例设计关键点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用例常用设计方法"><span class="toc-number">3.2.</span> <span class="toc-text">测试用例常用设计方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#等价类划分法"><span class="toc-number">3.2.1.</span> <span class="toc-text">等价类划分法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#边界值法"><span class="toc-number">3.3.</span> <span class="toc-text">边界值法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因果图-判定表设计法"><span class="toc-number">3.4.</span> <span class="toc-text">因果图-判定表设计法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正交实验法"><span class="toc-number">3.5.</span> <span class="toc-text">正交实验法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#场景法"><span class="toc-number">3.6.</span> <span class="toc-text">场景法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试用例综合设计"><span class="toc-number">4.</span> <span class="toc-text">测试用例综合设计</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -498,11 +590,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Software Test</a>
+                <a href="javascript:void(0)" class="js-tag color1">jokes</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Software Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Test Case</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Test Method</a>
               </li>
             
             <div class="clearfix"></div>
@@ -553,7 +657,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">这是一个美丽的夜晚！</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">个人学习记录网页。</div>
   	  	
     	</section>
     
