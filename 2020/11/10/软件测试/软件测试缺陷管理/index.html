@@ -16,7 +16,7 @@
 <meta property="og:description" content="缺陷管理 缺陷是一种泛称，它可以指功能的错误，也可以指性能低下，易用性差等 并不是所有的测试人员都能提交开发认可的缺陷，也不是测试员在任何时候都能提交被开发认可的缺陷">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-10T02:42:46.857Z">
-<meta property="article:modified_time" content="2020-11-13T09:39:08.932Z">
+<meta property="article:modified_time" content="2020-11-17T07:08:28.307Z">
 <meta property="article:author" content="睡觉前吃只鸡">
 <meta property="article:tag" content="Software Test">
 <meta property="article:tag" content="Debug Management">
@@ -288,7 +288,82 @@
 <p><strong>复测：</strong>开发人员修改好缺陷之后，测试人员重新进行测试(复测)，检测缺陷是否确定已经修改。如果未被正确修改，则重新提交缺陷</p>
 <p><strong>关闭：</strong>测试人员重新测试之后，如果缺陷已经被正确修改，则将缺陷关闭，整个缺陷处理完成</p>
 </blockquote>
-<p>| 步骤 | 人员 |任务 |缺陷状态|<br>|:-: | :-: | :-:| :-:| :-:|<br>|1 | 测试人员 |  提交缺陷  | New |<br>|2 | 测试负责人 |  分配缺陷 |       |<br>|3 | 项目或开发负责人 | 分配缺陷 |       |<br>|4 | 开发人员 | 验证缺陷-是缺陷  | Open |<br>|  | 开发人员 | 验证缺陷-不是缺陷 | Declined |<br>|  | 开发人员 | 对Open的缺陷再次确认，若可复现，则修正并记录缺陷产生原因和修正方法      |  Fiexed    |<br>|  | 开发人员 | 对Open的缺陷再次确认，若不可复现 | Need More Info |<br>|5 | 测试人员 | 对Declined的缺陷进行验证-不是缺陷 | Closed |<br>|6 | 评审委员会 | 对延期解决和分歧缺陷进行评审、分析、讨论和仲裁 |       |<br>|7 | 测试人员  | 对Fiexed的缺陷在新软件版本Build验证缺陷是否修复，若已经修复 | Closed |<br>|  | 测试人员  | 对Fiexed的缺陷在新软件版本Build验证缺陷是否修复，若没有修复 | Open |</p>
+<table>
+<thead>
+<tr>
+<th align="center">步骤</th>
+<th align="center">人员</th>
+<th align="center">任务</th>
+<th align="center">缺陷状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">测试人员</td>
+<td align="center">提交缺陷</td>
+<td align="center">New</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">测试负责人</td>
+<td align="center">分配缺陷</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">项目或开发负责人</td>
+<td align="center">分配缺陷</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">开发人员</td>
+<td align="center">验证缺陷-是缺陷</td>
+<td align="center">Open</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">开发人员</td>
+<td align="center">验证缺陷-不是缺陷</td>
+<td align="center">Declined</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">开发人员</td>
+<td align="center">对Open的缺陷再次确认，若可复现，则修正并记录缺陷产生原因和修正方法</td>
+<td align="center">Fiexed</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">开发人员</td>
+<td align="center">对Open的缺陷再次确认，若不可复现</td>
+<td align="center">Need More Info</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">测试人员</td>
+<td align="center">对Declined的缺陷进行验证-不是缺陷</td>
+<td align="center">Closed</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">评审委员会</td>
+<td align="center">对延期解决和分歧缺陷进行评审、分析、讨论和仲裁</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">测试人员</td>
+<td align="center">对Fiexed的缺陷在新软件版本Build验证缺陷是否修复，若已经修复</td>
+<td align="center">Closed</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">测试人员</td>
+<td align="center">对Fiexed的缺陷在新软件版本Build验证缺陷是否修复，若没有修复</td>
+<td align="center">Open</td>
+</tr>
+</tbody></table>
 <blockquote>
 <p>备注：评审委员会由开发经理-测试经理-项目经理-市场人员等组成</p>
 </blockquote>
@@ -324,7 +399,394 @@
 <li>整体界面是指整个应用系统的页面结构设计，是给用户的一个整体感。</li>
 <li>例如：当用户浏览应用系统时是否感到舒适，是否凭直觉就知道要找的信息在什么地方？整个应用系统的设计风格是否一致？</li>
 </ul>
-<h3 id="测试点总结"><a href="#测试点总结" class="headerlink" title="测试点总结"></a>测试点总结</h3>
+<h3 id="测试点总结"><a href="#测试点总结" class="headerlink" title="测试点总结"></a>测试点总结</h3><h4 id="控件类"><a href="#控件类" class="headerlink" title="控件类"></a>控件类</h4><table>
+<thead>
+<tr>
+<th align="center">编号</th>
+<th align="left">测试内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="left">按钮名称易懂，用词准确，与同一界面上的其他按钮易于区分</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">常用按钮支持快捷方式</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">相同或相近功能的按钮用Frame框起来，并有功能说明或标题</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">完成同一功能或任务的元素集中放置</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">应首先输入数据和重要信息的控件在<strong>Tab</strong>顺序中靠前，并放在窗口上较醒目的位置</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">选项卡控件(<strong>Tab</strong>)支持在页面间的快捷切换，常用快捷键<strong>Ctrl + Tab</strong></td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">默认按钮要支持”回车”即选操作</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">选择常用功能或数值作为默认值</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">复选框、单选框、列表框、下拉列表框的内容或条目多的时候按选择概率的高低或字母顺序排序</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">复选框或单选框有默认选项</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">界面空间较小时使用下拉列表框而不用单选框</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="left">选项条目较少时使用单选框，相反使用下拉列表框</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="left">专业性强的软件要使用相关的专业术语，通用性界面则提倡使用通用性术语</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="left">不同界面的通用按钮位置保持一致</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="left">常用按钮的等价按键保持一致</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="left">对可能给用户带来损失的操作最好支持可逆性处理</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="left">对可能造成等待时间较长的操作应该提供取消功能，并显示操作的状态</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td align="left">根据需要程序自动过滤输入的空格</td>
+</tr>
+</tbody></table>
+<h4 id="菜单类"><a href="#菜单类" class="headerlink" title="菜单类"></a>菜单类</h4><table>
+<thead>
+<tr>
+<th align="center">编号</th>
+<th align="left">测试内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="left">常用菜单项要有快捷键</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">菜单项前的图标能直观的代表要完成的操作</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">一组菜单的使用有先后要求或有向导作用时，按先后次序排列</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">没有顺序要求的菜单按使用频率和重要性排列，常用的和重要的放前面</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">主菜单的宽度要接近，字数不多于四个，每个菜单项的字数最好能相同</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">工具栏可以根据用户的需求进行定制</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">相同或相近功能的工具栏放在一起</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">工具栏的图标能直观的代表要完成的操作</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">状态条能显示用户切实需要的信息。如果某一操作需要的时间较长，还应该显示进度和进程提示</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">滚动条的长度根据显示信息的长度或宽度及时变换</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">菜单和工具栏有清楚的界限</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="left">菜单和状态通常使用5号字体</td>
+</tr>
+</tbody></table>
+<h4 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h4><table>
+<thead>
+<tr>
+<th align="center">编号</th>
+<th align="left">测试内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="left">编辑：<strong>Ctrl+A</strong>全选; <strong>Ctrl+C</strong>拷贝; <strong>Ctrl+V</strong>粘贴; <strong>Ctrl+X</strong>剪切; <strong>Ctrl+Z</strong>撤销; <strong>Ctrl+Y</strong>恢复; <strong>Ctrl+D</strong>删除; <strong>Ctrl+F</strong>寻找; <strong>Ctrl+H</strong>替换; <strong>Ctrl+I</strong>插入; <strong>Ctrl+ Tab</strong>下一个Tab窗口</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">文件操作：<strong>Ctrl+P</strong>打印; <strong>Ctrl+W</strong>关闭; <strong>Ctrl+N</strong>新建; <strong>Ctrl+S</strong>保存; <strong>Ctrl+O</strong>打开</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">主菜单：<strong>Alt+F</strong>文件; <strong>Alt+E</strong>编辑; <strong>Alt+T</strong>工具; <strong>Alt+W</strong>窗口; <strong>Alt+H</strong>帮助</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">Windows保留键：<strong>Ctrl+Esc</strong>任务列表; <strong>Ctrl+F4</strong>关闭窗口; <strong>Alt+F4</strong>结束应用; <strong>Alt+Tab</strong>切换到下一个应用; <strong>Enter</strong>缺省按钮/确认操作; <strong>Esc</strong>取消按钮/取消操作;  <strong>Shift+F1</strong>上下文相关帮助</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">其他组合：<strong>Alt+N</strong>否; <strong>Alt+D</strong>删除; <strong>Alt+Q</strong>退出; <strong>Alt+A</strong>添加; <strong>Alt+E</strong>编辑; <strong>Alt+B</strong>浏览; <strong>Alt+R</strong>读; <strong>Alt+W</strong>写</td>
+</tr>
+</tbody></table>
+<h3 id="兼容性测试"><a href="#兼容性测试" class="headerlink" title="兼容性测试"></a>兼容性测试</h3><p>定义:</p>
+<blockquote>
+<p>兼容性测试简称CTS,指对所设计程序与硬件、软件之间的兼容性的测试，一般来说，兼容性指能同时容纳多个方面，在计算机术语上兼容是指几个硬件之间、几个软件之间或是硬件之间的相互配合程度</p>
+</blockquote>
+<h4 id="兼容性分类"><a href="#兼容性分类" class="headerlink" title="兼容性分类"></a>兼容性分类</h4><blockquote>
+<ul>
+<li><p>Web兼容测试</p>
+<ul>
+<li><p>浏览器兼容</p>
+</li>
+<li><p>屏幕尺寸、分辨率</p>
+</li>
+<li><p>操作系统</p>
+</li>
+</ul>
+</li>
+<li><p>APP兼容测试</p>
+<ul>
+<li>设备型号兼容测试</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="测试选型"><a href="#测试选型" class="headerlink" title="测试选型"></a>测试选型</h4><blockquote>
+<ul>
+<li><p>Chrome: Webkit内核*1 &amp; Blink*1</p>
+</li>
+<li><p>FireFox: 最新版本</p>
+</li>
+<li><p>IE：7-11</p>
+</li>
+<li><p>Safari：Mac版本单独测试</p>
+</li>
+<li><p>Edge：Windows10</p>
+</li>
+<li><p>360安全浏览器(双核版)</p>
+</li>
+<li><p>搜狗等其他浏览器任选其一</p>
+</li>
+<li><p>如有需要Linux系统下FireFox、ChromeOS下Chrome</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="三方工具-Web兼容性测试"><a href="#三方工具-Web兼容性测试" class="headerlink" title="三方工具-Web兼容性测试"></a>三方工具-Web兼容性测试</h4><blockquote>
+<ul>
+<li><p>IETESTER(Ietester)</p>
+<ul>
+<li><p>进行IE5.5-IE11的兼容性测试，能够满足一定程度的测试需求</p>
+</li>
+<li><p>同时目前对于IE兼容性来说，更多支持IE7+,我们可以使用IE浏览器自带的调试工具来测试，故Ietester逐步鸡肋</p>
+</li>
+</ul>
+</li>
+<li><p>BrowserShots</p>
+<ul>
+<li><p><a href="http://www.browsershots.org通过在线截图的方式展现页面的兼容性" target="_blank" rel="noopener">www.browsershots.org通过在线截图的方式展现页面的兼容性</a></p>
+</li>
+<li><p>限制在于只可以通过输入网址的方式查看，对于未上线，测试中的网站比较难以使用</p>
+</li>
+</ul>
+</li>
+<li><p>Super Preview</p>
+<ul>
+<li><p>SuperPreview 是微软推出的 Expression Web3的一部分，有独立安装包</p>
+</li>
+<li><p>目标是集成IETESTER和BrowserShots的功能，但是目前还没有完善</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="三方工具-App兼容性测试"><a href="#三方工具-App兼容性测试" class="headerlink" title="三方工具-App兼容性测试"></a>三方工具-App兼容性测试</h4><p>设备选型TOP20</p>
+<table>
+<thead>
+<tr>
+<th align="left">厂商</th>
+<th align="center">设备名称</th>
+<th align="center">分辨率</th>
+<th align="center">型号</th>
+<th align="center">系统版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">小米</td>
+<td align="center">小米6</td>
+<td align="center">1920*1080</td>
+<td align="center">MI6</td>
+<td align="center">8.0</td>
+</tr>
+<tr>
+<td align="left">小米</td>
+<td align="center">红米Note4x</td>
+<td align="center">1920*1080</td>
+<td align="center">RedmiNote4x</td>
+<td align="center">6.0.1</td>
+</tr>
+<tr>
+<td align="left">小米</td>
+<td align="center">红米5plus</td>
+<td align="center">2160*1080</td>
+<td align="center">Redmi5plus</td>
+<td align="center">7.1.2</td>
+</tr>
+<tr>
+<td align="left">iPhone</td>
+<td align="center">7plus</td>
+<td align="center">1920*1080</td>
+<td align="center">7plus</td>
+<td align="center">11.3</td>
+</tr>
+<tr>
+<td align="left">iPhone</td>
+<td align="center">X</td>
+<td align="center">2436*1125</td>
+<td align="center">X</td>
+<td align="center">11.2.5</td>
+</tr>
+<tr>
+<td align="left">Vivo</td>
+<td align="center">X9plus</td>
+<td align="center">1920*1080</td>
+<td align="center">X9plus</td>
+<td align="center">7.1.1</td>
+</tr>
+<tr>
+<td align="left">小米</td>
+<td align="center">小米5(黑色)</td>
+<td align="center">1920*1080</td>
+<td align="center">MI5</td>
+<td align="center">6.0.1</td>
+</tr>
+<tr>
+<td align="left">小米</td>
+<td align="center">MIX2</td>
+<td align="center">1080*2160</td>
+<td align="center">MIX2</td>
+<td align="center">7.1.1</td>
+</tr>
+<tr>
+<td align="left">魅族</td>
+<td align="center">魅蓝note5</td>
+<td align="center">1920*1080</td>
+<td align="center">M5Note</td>
+<td align="center">7.0</td>
+</tr>
+<tr>
+<td align="left">Vivo</td>
+<td align="center">X7</td>
+<td align="center">1920*1080</td>
+<td align="center">VivoX7</td>
+<td align="center">5.1.1</td>
+</tr>
+<tr>
+<td align="left">iPhone</td>
+<td align="center">7</td>
+<td align="center">1334*750</td>
+<td align="center">7</td>
+<td align="center">11.3.1</td>
+</tr>
+<tr>
+<td align="left">华为</td>
+<td align="center">荣耀畅玩7X</td>
+<td align="center">1080*2160</td>
+<td align="center">BND-AL10</td>
+<td align="center">7.0</td>
+</tr>
+<tr>
+<td align="left">Vivo</td>
+<td align="center">X21</td>
+<td align="center">2280*1080</td>
+<td align="center">VivoX21</td>
+<td align="center">8.1.0</td>
+</tr>
+<tr>
+<td align="left">华为</td>
+<td align="center">荣耀V9</td>
+<td align="center">1440*2560</td>
+<td align="center">DUK-AL20</td>
+<td align="center">7.0</td>
+</tr>
+<tr>
+<td align="left">华为</td>
+<td align="center">nova</td>
+<td align="center">1080*1920</td>
+<td align="center">CAZ-AL10</td>
+<td align="center">7.0</td>
+</tr>
+<tr>
+<td align="left">iPhone</td>
+<td align="center">6S</td>
+<td align="center">1334*750</td>
+<td align="center">6S</td>
+<td align="center">10.3.3</td>
+</tr>
+<tr>
+<td align="left">华为</td>
+<td align="center">P20</td>
+<td align="center">2244*1080</td>
+<td align="center">EML-AL00</td>
+<td align="center">8.1</td>
+</tr>
+<tr>
+<td align="left">iPhone</td>
+<td align="center">6plus</td>
+<td align="center">1920*1080</td>
+<td align="center">6plus</td>
+<td align="center">10.3.3</td>
+</tr>
+<tr>
+<td align="left">华为</td>
+<td align="center">荣耀9</td>
+<td align="center">1080*1920</td>
+<td align="center">STF-AL10</td>
+<td align="center">7.0</td>
+</tr>
+<tr>
+<td align="left">华为</td>
+<td align="center">P9</td>
+<td align="center">1920*1080</td>
+<td align="center">EVA-AL10</td>
+<td align="center">7.0</td>
+</tr>
+</tbody></table>
+
       
 
       
@@ -371,7 +833,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E5%BE%85%E7%94%A8-5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E5%BE%85%E7%94%A8-6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -409,7 +871,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#缺陷管理"><span class="toc-number">1.</span> <span class="toc-text">缺陷管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是软件缺陷"><span class="toc-number">1.1.</span> <span class="toc-text">什么是软件缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷产生的原因"><span class="toc-number">1.2.</span> <span class="toc-text">缺陷产生的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发现缺陷"><span class="toc-number">1.3.</span> <span class="toc-text">发现缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷报告"><span class="toc-number">1.4.</span> <span class="toc-text">缺陷报告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BUG重现"><span class="toc-number">1.4.1.</span> <span class="toc-text">BUG重现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无法重现的BUG"><span class="toc-number">1.4.2.</span> <span class="toc-text">无法重现的BUG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告包含的信息"><span class="toc-number">1.4.3.</span> <span class="toc-text">缺陷报告包含的信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告的写作准则（5C）"><span class="toc-number">1.4.4.</span> <span class="toc-text">缺陷报告的写作准则（5C）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告的组织架构"><span class="toc-number">1.4.5.</span> <span class="toc-text">缺陷报告的组织架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复现步骤"><span class="toc-number">1.4.6.</span> <span class="toc-text">复现步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告注意事项"><span class="toc-number">1.4.7.</span> <span class="toc-text">缺陷报告注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告原则"><span class="toc-number">1.4.8.</span> <span class="toc-text">缺陷报告原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷跟踪（缺陷处理流程）"><span class="toc-number">1.5.</span> <span class="toc-text">缺陷跟踪（缺陷处理流程）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷管理工具-禅道"><span class="toc-number">1.6.</span> <span class="toc-text">缺陷管理工具-禅道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#易用性测试"><span class="toc-number">1.7.</span> <span class="toc-text">易用性测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试内容"><span class="toc-number">1.7.1.</span> <span class="toc-text">易用性测试内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–导航测试"><span class="toc-number">1.7.2.</span> <span class="toc-text">易用性测试方法–导航测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–图形测试"><span class="toc-number">1.7.3.</span> <span class="toc-text">易用性测试方法–图形测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–内容测试"><span class="toc-number">1.7.4.</span> <span class="toc-text">易用性测试方法–内容测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–整体界面测试"><span class="toc-number">1.7.5.</span> <span class="toc-text">易用性测试方法–整体界面测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试点总结"><span class="toc-number">1.8.</span> <span class="toc-text">测试点总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#缺陷管理"><span class="toc-number">1.</span> <span class="toc-text">缺陷管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是软件缺陷"><span class="toc-number">1.1.</span> <span class="toc-text">什么是软件缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷产生的原因"><span class="toc-number">1.2.</span> <span class="toc-text">缺陷产生的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发现缺陷"><span class="toc-number">1.3.</span> <span class="toc-text">发现缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷报告"><span class="toc-number">1.4.</span> <span class="toc-text">缺陷报告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BUG重现"><span class="toc-number">1.4.1.</span> <span class="toc-text">BUG重现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无法重现的BUG"><span class="toc-number">1.4.2.</span> <span class="toc-text">无法重现的BUG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告包含的信息"><span class="toc-number">1.4.3.</span> <span class="toc-text">缺陷报告包含的信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告的写作准则（5C）"><span class="toc-number">1.4.4.</span> <span class="toc-text">缺陷报告的写作准则（5C）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告的组织架构"><span class="toc-number">1.4.5.</span> <span class="toc-text">缺陷报告的组织架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复现步骤"><span class="toc-number">1.4.6.</span> <span class="toc-text">复现步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告注意事项"><span class="toc-number">1.4.7.</span> <span class="toc-text">缺陷报告注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺陷报告原则"><span class="toc-number">1.4.8.</span> <span class="toc-text">缺陷报告原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷跟踪（缺陷处理流程）"><span class="toc-number">1.5.</span> <span class="toc-text">缺陷跟踪（缺陷处理流程）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷管理工具-禅道"><span class="toc-number">1.6.</span> <span class="toc-text">缺陷管理工具-禅道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#易用性测试"><span class="toc-number">1.7.</span> <span class="toc-text">易用性测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试内容"><span class="toc-number">1.7.1.</span> <span class="toc-text">易用性测试内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–导航测试"><span class="toc-number">1.7.2.</span> <span class="toc-text">易用性测试方法–导航测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–图形测试"><span class="toc-number">1.7.3.</span> <span class="toc-text">易用性测试方法–图形测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–内容测试"><span class="toc-number">1.7.4.</span> <span class="toc-text">易用性测试方法–内容测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#易用性测试方法–整体界面测试"><span class="toc-number">1.7.5.</span> <span class="toc-text">易用性测试方法–整体界面测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试点总结"><span class="toc-number">1.8.</span> <span class="toc-text">测试点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#控件类"><span class="toc-number">1.8.1.</span> <span class="toc-text">控件类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#菜单类"><span class="toc-number">1.8.2.</span> <span class="toc-text">菜单类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快捷键设置"><span class="toc-number">1.8.3.</span> <span class="toc-text">快捷键设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容性测试"><span class="toc-number">1.9.</span> <span class="toc-text">兼容性测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#兼容性分类"><span class="toc-number">1.9.1.</span> <span class="toc-text">兼容性分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试选型"><span class="toc-number">1.9.2.</span> <span class="toc-text">测试选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三方工具-Web兼容性测试"><span class="toc-number">1.9.3.</span> <span class="toc-text">三方工具-Web兼容性测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三方工具-App兼容性测试"><span class="toc-number">1.9.4.</span> <span class="toc-text">三方工具-App兼容性测试</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,11 +997,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">jokes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jokes</a>
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
               </li>
              
               <li class="article-tag-list-item">
