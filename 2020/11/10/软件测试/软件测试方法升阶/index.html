@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Markdown | Note</title>
+  <title>软件测试方法升阶 | Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客学习记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Note">
-<meta property="og:url" content="http://yoursite.com/tags/Markdown/index.html">
+  <meta name="description" content="白盒测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试方法升阶">
+<meta property="og:url" content="http://yoursite.com/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E5%8D%87%E9%98%B6/index.html">
 <meta property="og:site_name" content="Note">
-<meta property="og:description" content="个人博客学习记录">
+<meta property="og:description" content="白盒测试">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-10T02:42:46.264Z">
+<meta property="article:modified_time" content="2020-12-03T13:31:54.197Z">
 <meta property="article:author" content="睡觉前吃只鸡">
+<meta property="article:tag" content="Software Test">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Note" type="application/atom+xml">
@@ -144,48 +147,378 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-软件测试/软件测试方法升阶" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/Markdown%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-04-10T16:38:09.317Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/Markdown%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/">Markdown</a>
+    <h1 class="article-title" itemprop="name">
+      软件测试方法升阶
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E5%8D%87%E9%98%B6/" class="archive-article-date">
+  	<time datetime="2020-11-10T02:42:46.264Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h2><!-- 自动化测试适合回归测试和API测试，手工测试适合做验收测试和GUI测试 -->
+<a id="more"></a>
+
+<h3 id="白盒测试之代码审查"><a href="#白盒测试之代码审查" class="headerlink" title="白盒测试之代码审查"></a>白盒测试之代码审查</h3><blockquote>
+<p>合格的代码应具备正确性、清晰性、规范性、一致性和高效性<br>代码审查的工作涵盖以下方面：</p>
+</blockquote>
+<ol>
+<li>业务逻辑的审查</li>
+<li>算法的效率</li>
+<li>代码风格</li>
+<li>编程规则</li>
+</ol>
+<h4 id="代码审查的方法"><a href="#代码审查的方法" class="headerlink" title="代码审查的方法"></a>代码审查的方法</h4><h5 id="互查"><a href="#互查" class="headerlink" title="互查"></a>互查</h5><blockquote>
+<p>相同模块或相近模块的编程人员之间互相检查</p>
+</blockquote>
+<h5 id="走查"><a href="#走查" class="headerlink" title="走查"></a>走查</h5><blockquote>
+<p>从头到尾将写好的程序检查一遍</p>
+</blockquote>
+<h4 id="代码审查的规则"><a href="#代码审查的规则" class="headerlink" title="代码审查的规则"></a>代码审查的规则</h4><p>Java最基本语句的使用<br>重载函数的审查<br>内存分配和管理：当进行内分配和管理时，很重要一点就是确保内存及时释放和避免缓冲区溢出。<br>程序性能的审查：</p>
+<ol>
+<li>减少创建对象</li>
+<li>减少循环体的执行代码，能放在循环体外的代码要尽量放在循环体外</li>
+<li>提高处理异常出错的效率</li>
+<li>减少I/O操作时间</li>
+</ol>
+<p>###　单元测试用例设计</p>
+<p>测试要求</p>
+<ol>
+<li>对程序模块所有独立的执行路径至少要测试一次</li>
+<li>对所有逻辑判定，其结果为真、假两种情况至少要测试一次</li>
+<li>对程序进行边界检查(常用的如数据越界检验)</li>
+<li>检验内部数据结构的有效性</li>
+</ol>
+<h3 id="白盒测试方法之逻辑覆盖法"><a href="#白盒测试方法之逻辑覆盖法" class="headerlink" title="白盒测试方法之逻辑覆盖法"></a>白盒测试方法之逻辑覆盖法</h3><p>逻辑覆盖分为语句覆盖、判定覆盖、条件覆盖、判定－条件覆盖、条件组合覆盖</p>
+<h4 id="语句覆盖"><a href="#语句覆盖" class="headerlink" title="语句覆盖"></a>语句覆盖</h4><p>基本思想：</p>
+<blockquote>
+<p>设计若干测试用例，运行被测程序，是程序中的每个可执行语句至少被执行一次</p>
+</blockquote>
+<p>特点：</p>
+<blockquote>
+<p>能使得所有的执行语句都被测试，但是不能准确判断运算中的逻辑关系错误</p>
+</blockquote>
+<h4 id="判定覆盖"><a href="#判定覆盖" class="headerlink" title="判定覆盖"></a>判定覆盖</h4><p>基本思想：</p>
+<blockquote>
+<p>设计若干测试用例，使每个判断的取真值和取假值都要至少经历一次</p>
+</blockquote>
+<h4 id="条件覆盖"><a href="#条件覆盖" class="headerlink" title="条件覆盖"></a>条件覆盖</h4><p>基本思想：</p>
+<blockquote>
+<p>设计若干测试用例，使每个条件的取真值和取假值都要至少经历一次</p>
+</blockquote>
+<h4 id="判定-条件覆盖"><a href="#判定-条件覆盖" class="headerlink" title="判定-条件覆盖"></a>判定-条件覆盖</h4><p>基本思想：</p>
+<blockquote>
+<p>设计若干测试用例，使得判断条件中所有条件的可能取值至少被执行一次，同时，所有判断的可能结果也至少被执行一次</p>
+</blockquote>
+<h4 id="条件组合覆盖"><a href="#条件组合覆盖" class="headerlink" title="条件组合覆盖"></a>条件组合覆盖</h4><p>基本思想：</p>
+<blockquote>
+<p>设计若干测试用例，使判断中的每个条件得所有可能至少出现一次，并且每个判断本身的判定结果也至少出现一次</p>
+</blockquote>
+<h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h2><p>定义：</p>
+<blockquote>
+<p>把手工测试转化成机器、软件、程序来测试产品的过程</p>
+</blockquote>
+<p>测试框架：</p>
+<blockquote>
+<p><strong>功能和业务流程分析</strong> <code>=&gt;</code> <strong>自动化测试用例设计</strong><code>=&gt;</code> <strong>测试脚本生成</strong> <code>=&gt;</code> <strong>测试数据和测试环境</strong> <code>=&gt;</code> <strong>测试调度</strong></p>
+</blockquote>
+<p>意义：</p>
+<ol>
+<li>缩短软件开发测试周期，可以让产品更快投放市场</li>
+<li>测试效率高，充分利用硬件资源</li>
+<li>节省人力资源，降低测试成本</li>
+<li>增强测试的稳定性和可靠性</li>
+<li>提高软件测试的准确度和精确度，增加软件信任度</li>
+<li>软件测试工具使测试工作相对比较容易，但能产生更高质量的测试结果</li>
+</ol>
+<p>项目具有以下方面内容适合自动化测试：</p>
+<ol>
+<li>需求变更有计划性，并且频率不高</li>
+<li>项目周期长，资源丰富</li>
+<li>脚本重复利用率高</li>
+<li>代码规范</li>
+</ol>
+<p>###　Web自动化测试工具</p>
+<p>主要有QTP、Selenium、UFT、RFT、Sikuli</p>
+<h3 id="安全测试"><a href="#安全测试" class="headerlink" title="安全测试"></a>安全测试</h3><h4 id="WASC"><a href="#WASC" class="headerlink" title="WASC"></a>WASC</h4><p><strong>WASC</strong> =&gt; <strong>“Web Application Security Consortium”</strong></p>
+<blockquote>
+<p>一个由安全专家、行业顾问和诸多组织的代表组成的国际团体，他们负责为WWW制定被广为接受的应用安全标准</p>
+</blockquote>
+<p>WASC将Web应用安全威胁分为六大类：</p>
+<ol>
+<li><p>Authentication(验证):用来确认某用户、服务或是应用身份的攻击手段</p>
+</li>
+<li><p>Authorization(授权):用来决定是否某用户、服务或是应用具有执行请求动作必要权限的攻击手段</p>
+</li>
+<li><p>Client-Side Attacks(客户端攻击):用来扰乱或是探测Web站点用户的攻击手段</p>
+</li>
+<li><p>Command Execution(命令执行):在Web站点上执行远程命令的攻击手段</p>
+</li>
+<li><p>Information Disclosure(信息暴露):用来获取Web站点具体系统信息的攻击手段</p>
+</li>
+<li><p>Logical Attacks(逻辑性攻击):用来扰乱或是探测Web应用逻辑流程的攻击手段</p>
+</li>
+</ol>
+<p>####　OWASP</p>
+<p><strong>OWASP</strong> =&gt; <strong>“Open Web Application Security Project”</strong></p>
+<blockquote>
+<p>致力于发现和解决不安全Web应用的根本原因</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">编号</th>
+<th align="left">OWASP Top安全漏洞</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="left">注入</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">失效的身份认证和会话管理</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">跨站脚本</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">失效的访问控制</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">安全配置错误</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">敏感信息泄露</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">跨站请求伪造</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">使用含有已知漏洞的控件</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">攻击检测和防范不足</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">未受保护的APIs</td>
+</tr>
+</tbody></table>
+<h4 id="Web安全测试流程"><a href="#Web安全测试流程" class="headerlink" title="Web安全测试流程"></a>Web安全测试流程</h4><p><strong>解析、分析Web应用</strong> =&gt; <strong>[测试验证机制、测试会话管理、测试访问控制、测试基于输入的各种漏洞、测试逻辑缺陷]</strong> =&gt; <strong>总结&amp;分析</strong></p>
+<h4 id="安全审计-AppScan和WebInspect工具"><a href="#安全审计-AppScan和WebInspect工具" class="headerlink" title="安全审计-AppScan和WebInspect工具"></a>安全审计-AppScan和WebInspect工具</h4><ol>
+<li><p>Web应用、第三方组件、Web服务器配置、Web服务器、数据库、应用、操作系统、网络</p>
+</li>
+<li><p>AppScan扫描范围：<strong>[第三方组件、Web服务器配置、Web服务器、数据库]</strong></p>
+</li>
+</ol>
+<h5 id="AppScan扫描原理-探测阶段"><a href="#AppScan扫描原理-探测阶段" class="headerlink" title="AppScan扫描原理-探测阶段"></a>AppScan扫描原理-探测阶段</h5><ol>
+<li><p>探测过程中，所采用的测试策略可以选择默认或者是自定义，可采用不同的测试策略，策略库是AppScan内置的，它可以定义为你想要的组合，去检测你最想检测的可能存在的安全隐患</p>
+</li>
+<li><p>磨房一个用户对被访问的Web应用或Web服务站点进行探测访问，通过发送请求对站点内的链接与表单域进行访问或填写，以获取相应的站点信息(Application Tree)</p>
+</li>
+<li><p>AppScan分析器将会对自己发送的每一个请求后的响应做出判断，查找出任何可能潜在风险的地方，并针对这些可能会隐含风险的响应，确定将要自动生成的测试用例</p>
+</li>
+<li><p>探测阶段完成后，这些高危区域是否真的隐含着安全缺陷或应做更好的改良，以及这些隐含的风险是处于什么层度的，是需要在测试执行完成后，才能最终得出结论</p>
+</li>
+</ol>
+<h5 id="AppScan扫描原理-测试阶段"><a href="#AppScan扫描原理-测试阶段" class="headerlink" title="AppScan扫描原理-测试阶段"></a>AppScan扫描原理-测试阶段</h5><ol>
+<li><p>探测阶段后，AppScan已经分析出可能潜在安全风险的站点模型</p>
+</li>
+<li><p>AppScan也已经知道需要生成多少的测试用例，以便检测这些区域的安全隐患。这个时候的工作，主要就是生成这些已经计划好的测试用例</p>
+</li>
+<li><p>AppScan是通过测试策略库中对应安全隐患的检测规则而生成对应的足够全面而且复杂的测试输入</p>
+</li>
+</ol>
+<h5 id="AppScan扫描原理-扫描阶段"><a href="#AppScan扫描原理-扫描阶段" class="headerlink" title="AppScan扫描原理-扫描阶段"></a>AppScan扫描原理-扫描阶段</h5><ol>
+<li><p>扫描阶段，AppScan才是真正的工作起来，他将会把上个阶段的测试用例产生的服务请求陆续的发送出去，然后在检测分析服务的响应结果，从而判断该测试用例的输入，是否造成了安全隐患或安全问题</p>
+</li>
+<li><p>再然后通过测试用例生成的策略，找出该安全问题的描述，以及该问题的解决方案，同时还报告相关参数的请求发送以及响应结果</p>
+</li>
+</ol>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>性能测试是<strong>描述测试对象与性能相关的特征并对其进行评价而实施和执行的一类测试，对软件系统而言包括执行效率、资源占用、系统稳定性、安全性、兼容性、可靠性、可拓展性等</strong></p>
+<p>性能测试通常包含以下方面的内容：</p>
+<ul>
+<li>评估生产准备状态</li>
+<li>评估性能判定标准</li>
+<li>比较多个不同系统或同一系统配置之间的性能特征</li>
+<li>找出导致性能问题的源头</li>
+<li>帮助进行系统性能调优</li>
+<li>确定吞吐量水平</li>
+</ul>
+<p>####　性能测试流程</p>
+<ol>
+<li><p>确定测试环境</p>
+<ul>
+<li>物理环境、生产环境、测试团队可利用的工具和资源</li>
+</ul>
+</li>
+<li><p>确定性能验收标准</p>
+<ul>
+<li>确定响应时间、吞吐量、资源利用总目标和限制</li>
+</ul>
+</li>
+<li><p>计划和设计测试</p>
+<ul>
+<li><p>确定关键场景</p>
+</li>
+<li><p>确定典型用户的可变性，以及如何模拟这些变化</p>
+</li>
+<li><p>确定测试数据</p>
+</li>
+<li><p>确定需要收集的度量值</p>
+</li>
+</ul>
+</li>
+<li><p>配置测试环境</p>
+<ul>
+<li>随着需要测试的功能和组件的完善，逐步为每个策略准备执行所需的测试环境、工具以及资源</li>
+</ul>
+</li>
+<li><p>实现测试设计</p>
+<ul>
+<li>根据测试设计逐步展开性能测试</li>
+</ul>
+</li>
+<li><p>执行测试</p>
+<ul>
+<li>执行和监控测试</li>
+</ul>
+</li>
+<li><p>分析结果。报告以及重复测试</p>
+<ul>
+<li>整合并共享结果数据</li>
+</ul>
+</li>
+</ol>
+<h4 id="性能测试的分类"><a href="#性能测试的分类" class="headerlink" title="性能测试的分类"></a>性能测试的分类</h4><blockquote>
+<p>负载测试、压力测试、容量测试、配置测试、并发测试、可靠性测试、稳定性测试</p>
+</blockquote>
+<ol>
+<li><p>负载测试</p>
+<ul>
+<li>侧重于确定当前测试中的系统或者应用软件在工作负载条件下，或者在实际运行阶段加载预期的容量时，系统或者应用软件所具备的相关性能特性。</li>
+<li>通过逐步证据系统负载，测试系统性能的变化，并最终确定在满足性能指标下，系统所能够承受的最大负载量。</li>
+</ul>
+</li>
+<li><p>压力测试</p>
+<ul>
+<li><p>确定当系统或者应用软件在某些超过实际运行阶段所预期的条件下时所具备的性能特性</p>
+</li>
+<li><p>通过逐步增加系统负载，测试系统性能的变化，并最终确定在什么负载条件下系统性能处于失效状态，并获得系统能提供最大的服务基本</p>
+</li>
+<li><p>压力测试是逐步增加负载，使系统某些资源达到饱和甚至失效的测试</p>
+</li>
+</ul>
+</li>
+<li><p>容量测试</p>
+<ul>
+<li>在满足性能目标的前提下，系统能够最大处理的最大会话能力，确定系统可处理同时在线的最大用户数</li>
+</ul>
+</li>
+<li><p>配置测试</p>
+<ul>
+<li>通过对被测软件的软硬件配置的测试，找到系统各项资源的最优分配原则</li>
+</ul>
+</li>
+<li><p>并发测试</p>
+<ul>
+<li>测试多个用户同时访问同一个应用、同一个模块或者数据记录时是否存在死锁或者其他性能问题，几乎所有的性能测试都会涉及到并发测试</li>
+</ul>
+</li>
+<li><p>可靠性测试</p>
+<ul>
+<li>通过给系统加载一定的业务压力的情况下，运行一段时间，检查系统是否稳定。通常可以测试出系统是否有内存泄露等问题</li>
+</ul>
+</li>
+<li><p>稳定性测试</p>
+<ul>
+<li>在复杂多变的环境下系统所能够提供的总可靠性、健壮性、功能和数据完整性、有效性以及响应的连续性</li>
+</ul>
+</li>
+</ol>
+<h4 id="核心性能测试流程"><a href="#核心性能测试流程" class="headerlink" title="核心性能测试流程"></a>核心性能测试流程</h4><table>
+<thead>
+<tr>
+<th align="center">流程</th>
+<th align="left">投入</th>
+<th align="left">产出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.确定测试环境</td>
+<td align="left">逻辑和物理生成结构、逻辑和物理测试结构、可用工具</td>
+<td align="left">测试和生产环境比较、与环境相关的关注点、确定是否需要额外的工具</td>
+</tr>
+<tr>
+<td align="center">2.确定性能验收标准</td>
+<td align="left">客户预期、可降低的风险、商业需求、合同义务</td>
+<td align="left">性能测试成功标准、性能测试目标和需求、调查的关键领域、重要的性能指标、重要的商业活动指标</td>
+</tr>
+<tr>
+<td align="center">3.计划和设计测试</td>
+<td align="left">可用的应用软件功能和组件、应用软件的应用场景、部件测试、性能验收标准</td>
+<td align="left">总体策略、测试执行的先决条件、所需的工具和资源、将要模拟的应用软件使用模型、执行测试所需要的测试数据、将要执行的测试</td>
+</tr>
+<tr>
+<td align="center">4.配置测试环境</td>
+<td align="left">总体策略、可用工具、设计好的测试</td>
+<td align="left">配置负载生成和资源监督程序、准备性能测试所需环境</td>
+</tr>
+<tr>
+<td align="center">5.执行测试设计</td>
+<td align="left">总体策略、可用工具和环境、可用应用软件功能和组件、设计好的测试</td>
+<td align="left">有效可执行的测试、有效资源监督、有效数据采集</td>
+</tr>
+<tr>
+<td align="center">6.执行测试</td>
+<td align="left">任务执行计划、可用工具和环境、可用的应用软件功能和组件、有效可执行的测试</td>
+<td align="left">测试执行结果</td>
+</tr>
+<tr>
+<td align="center">7.分析结果、报告和重复测试</td>
+<td align="left">任务执行结果、性能验收标准、风险、焦点和问题</td>
+<td align="left">结果分析、建议、报告</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -198,17 +531,75 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          软件测试-面试题
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">软件测试常用测试方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#白盒测试"><span class="toc-number">1.</span> <span class="toc-text">白盒测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#白盒测试之代码审查"><span class="toc-number">1.1.</span> <span class="toc-text">白盒测试之代码审查</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码审查的方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">代码审查的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#互查"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">互查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#走查"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">走查</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码审查的规则"><span class="toc-number">1.1.2.</span> <span class="toc-text">代码审查的规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#白盒测试方法之逻辑覆盖法"><span class="toc-number">1.2.</span> <span class="toc-text">白盒测试方法之逻辑覆盖法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语句覆盖"><span class="toc-number">1.2.1.</span> <span class="toc-text">语句覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判定覆盖"><span class="toc-number">1.2.2.</span> <span class="toc-text">判定覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#条件覆盖"><span class="toc-number">1.2.3.</span> <span class="toc-text">条件覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判定-条件覆盖"><span class="toc-number">1.2.4.</span> <span class="toc-text">判定-条件覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#条件组合覆盖"><span class="toc-number">1.2.5.</span> <span class="toc-text">条件组合覆盖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化测试"><span class="toc-number">2.</span> <span class="toc-text">自动化测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安全测试"><span class="toc-number">2.1.</span> <span class="toc-text">安全测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WASC"><span class="toc-number">2.1.1.</span> <span class="toc-text">WASC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Web安全测试流程"><span class="toc-number">2.1.2.</span> <span class="toc-text">Web安全测试流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安全审计-AppScan和WebInspect工具"><span class="toc-number">2.1.3.</span> <span class="toc-text">安全审计-AppScan和WebInspect工具</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AppScan扫描原理-探测阶段"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">AppScan扫描原理-探测阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AppScan扫描原理-测试阶段"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">AppScan扫描原理-测试阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AppScan扫描原理-扫描阶段"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">AppScan扫描原理-扫描阶段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能测试"><span class="toc-number">2.2.</span> <span class="toc-text">性能测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#性能测试的分类"><span class="toc-number">2.2.1.</span> <span class="toc-text">性能测试的分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心性能测试流程"><span class="toc-number">2.2.2.</span> <span class="toc-text">核心性能测试流程</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -249,9 +640,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
