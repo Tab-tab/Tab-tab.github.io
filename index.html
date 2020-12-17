@@ -146,6 +146,349 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-软件测试/Webdriver电商Fecmail测试实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Webdriver%E7%94%B5%E5%95%86Fecmail%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B/">Fecmail电商测试实例</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Webdriver%E7%94%B5%E5%95%86Fecmail%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B/" class="archive-article-date">
+  	<time datetime="2020-12-17T10:17:17.311Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># -*- coding: utf-8 -*-
+from selenium import webdriver
+import os, time
+# import unittest
+
+&quot;&quot;&quot;
+基础配置：
+当前文件夹路径、工作文件夹路径、工具路径、截图文件夹路径
+
+&quot;&quot;&quot;
+# 当前文件夹路径
+currentPath = os.path.abspath(os.path.dirname(__file__))
+# 工作文件夹路径
+projectPath = os.path.split(currentPath)[0]
+# 工具路径(谷歌浏览器和火狐浏览器)
+chromeToolPath = projectPath.replace(&quot;\\&quot;, &quot;/&quot;) + &quot;/driver/chromedriver&quot;
+firefoxToolPath = projectPath.replace(&quot;\\&quot;, &quot;/&quot;) + &quot;/driver/geckodriver&quot;
+# 截图文件夹路径
+screenShotPath = projectPath.replace(&quot;\\&quot;, &quot;/&quot;) + &quot;/screenshot/&quot;
+# print(&quot;当前文件夹路径：{0}\n 工作文件夹路径：{1}\n 工具路径：{2}\n截图文件夹路径:{3}&quot;.format(
+#         currentPath, projectPath, chromeToolPath, screenShotPath
+#     ))
+
+&quot;&quot;&quot;
+一 、Fecmail电商注册以及退出步骤：
+    1. 打开Fecmail电商首页，部署在虚拟机中（http://192.168.174.129）
+    2. 点击登录账户按钮，页面跳转
+    3. 点击注册按钮，页面跳转
+    4. 在个人账户信息下输入名、姓、邮箱地址，点击订阅邮件复选框(取消邮件的订阅)
+    5. 在登录信息下输入密码、确认密码、以及人工输入验证码
+    ，点击提交按钮,页面跳转
+    6. 点击退出按钮,页面跳转
+
+二、 Fecmail电商登录以及退出步骤
+    1. 打开Fecmail电商首页，部署在虚拟机中（http://192.168.174.129）
+    2. 点击登录账户按钮，页面跳转
+    3. 输入邮箱、密码、点击登陆
+    4. 点击退出按钮
+&quot;&quot;&quot;
+
+
+
+class FecmailCase():
+
+    def __init__(self):
+
+        # 创建浏览器对象
+        self.driver = webdriver.Chrome(executable_path=chromeToolPath)
+        # 20s的隐式等待
+        self.driver.implicitly_wait(20)
+        # 1. 打开Fecmail首页地址
+        self.driver.get(&quot;http://192.168.174.129&quot;)
+
+    def register(self, re_first_name, re_last_name, re_email_address,
+                re_password, re_confirmation):
+        # 2. 点击登录账户按钮，页面跳转
+        self.driver.find_element_by_link_text(&quot;登录账户&quot;).click()
+
+        # 确认登录账户页面跳转，断言工作
+        current_url = self.driver.current_url
+        register_url = &quot;http://192.168.174.129/customer/account/login&quot;
+        if register_url == current_url:
+            print(&quot;登录账户页面跳转成功，当前地址:{}&quot;.format(current_url))
+        else:
+            print(&quot;登录账户页面跳转失败，当前地址:{}&quot;.format(current_url))
+
+        # 3. 点击注册按钮，页面跳转
+        self.driver.find_element_by_xpath(&apos;//*[@id=&quot;login-form&quot;]/div[1]/div[1]/button/em/span&apos;).click()
+        # 确认注册页面跳转，断言工作
+        current_url = self.driver.current_url
+        register_url = &quot;http://192.168.174.129/customer/account/register&quot;
+        if register_url == current_url:
+            print(&quot;注册页面跳转成功，当前地址:{}&quot;.format(current_url))
+        else:
+            print(&quot;注册页面跳转失败，当前地址:{}&quot;.format(current_url))
+
+        # 4.在个人账户信息下依次操作输入名、姓、邮箱地址，点击订阅邮件复选框(取消邮件的订阅)
+        self.driver.find_element_by_id(&quot;firstname&quot;).send_keys(re_first_name)
+        self.driver.find_element_by_id(&quot;lastname&quot;).send_keys(re_last_name)
+        self.driver.find_element_by_id(&quot;email_address&quot;).send_keys(re_email_address)
+        self.driver.find_element_by_id(&quot;is_subscribed&quot;).click()
+
+        # 5. 在登录信息下依次操作输入密码、确认密码、以及人工输入验证码，点击提交，按钮页面跳转
+        self.driver.find_element_by_id(&quot;password&quot;).send_keys(re_password)
+        self.driver.find_element_by_id(&quot;confirmation&quot;).send_keys(re_confirmation)
+        # 强制等待，人工输入验证码
+        time.sleep(5)
+        self.driver.find_element_by_xpath(&apos;//*[@id=&quot;js_registBtn&quot;]/em/span&apos;).click()
+
+        # 确认用户页面跳转，断言工作
+        # 强制等待3s，缓冲提交页面跳转的时间
+        time.sleep(3)
+        current_url = self.driver.current_url
+        register_url = &quot;http://192.168.174.129/customer/account&quot;
+        if register_url == current_url:
+            print(&quot;用户页面跳转成功，当前地址:{}&quot;.format(current_url))
+        else:
+            print(&quot;用户页面跳转失败，当前地址:{}&quot;.format(current_url))
+
+        # 6. 点击退出按钮,页面跳转
+        self.driver.find_element_by_link_text(&quot;退出&quot;).click()
+        # 确认退出页面跳转，断言工作
+        current_url = self.driver.current_url
+        register_url = &quot;http://192.168.174.129/customer/account/login&quot;
+        if register_url == current_url:
+            print(&quot;退出页面跳转成功，当前地址:{}&quot;.format(current_url))
+        else:
+            print(&quot;退出页面跳转失败，当前地址:{}&quot;.format(current_url))
+
+    def login_fecmail(self, login_email, login_password):
+        # 点击登录账户按钮，页面跳转
+        self.driver.find_element_by_link_text(&quot;登录账户&quot;).click()
+        # 输入邮箱、密码、点击登陆
+        self.driver.find_element_by_id(&quot;email&quot;).send_keys(login_email)
+        self.driver.find_element_by_id(&quot;pass&quot;).send_keys(login_password)
+        self.driver.find_element_by_xpath(&apos;//*[@id=&quot;js_registBtn&quot;]/em/span&apos;).click()
+
+    def logout_fecmail(self):
+        self.driver.find_element_by_link_text(&quot;退出&quot;).click()
+
+        # 断言，确定回到登录页面
+        current_url = self.driver.current_url
+        login_url = &quot;http://192.168.174.129/customer/account/login&quot;
+        if current_url == login_url:
+            print(&quot;退出成功&quot;)
+        else:
+            print(&quot;退出失败&quot;)
+
+    def quit_browser(self):
+        self.driver.quit()
+
+
+if __name__ == &quot;__main__&quot;:
+
+    # 实例化类
+
+    test_FecmailCase = FecmailCase()
+
+    &quot;&quot;&quot; 一 、Fecmail电商注册以及退出步骤：&quot;&quot;&quot;
+
+    # 输入注册信息
+    # test_FecmailCase.register(
+    #     &quot;小二&quot;,
+    #     &quot;李&quot;,
+    #     &quot;12345678@163.com&quot;,
+    #     &quot;123456&quot;,
+    #     &quot;123456&quot;
+    # )
+
+    &quot;&quot;&quot;二、Fecmail电商登录以及退出步骤&quot;&quot;&quot;
+
+    test_FecmailCase.login_fecmail(
+        &quot;123456@163.com&quot;,
+        &quot;123456&quot;
+        )
+    test_FecmailCase.logout_fecmail()
+    test_FecmailCase.quit_browser()</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">selenium</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Webdriver</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Note//" class="article-tag-list-link color5">Note</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Webdriver%E7%94%B5%E5%95%86Fecmail%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-软件测试/webdriver元素等待与多表单处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/webdriver%E5%85%83%E7%B4%A0%E7%AD%89%E5%BE%85%E4%B8%8E%E5%A4%9A%E8%A1%A8%E5%8D%95%E5%A4%84%E7%90%86/">Webdriver元素等待与多表单处理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/webdriver%E5%85%83%E7%B4%A0%E7%AD%89%E5%BE%85%E4%B8%8E%E5%A4%9A%E8%A1%A8%E5%8D%95%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-12-17T10:07:14.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="元素等待"><a href="#元素等待" class="headerlink" title="元素等待"></a>元素等待</h2><p>元素等待分为：隐式等待、显示等待、强制等待</p>
+        
+          <a class="article-more-a" href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/webdriver%E5%85%83%E7%B4%A0%E7%AD%89%E5%BE%85%E4%B8%8E%E5%A4%9A%E8%A1%A8%E5%8D%95%E5%A4%84%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">selenium</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Webdriver</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Note//" class="article-tag-list-link color5">Note</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/17/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/webdriver%E5%85%83%E7%B4%A0%E7%AD%89%E5%BE%85%E4%B8%8E%E5%A4%9A%E8%A1%A8%E5%8D%95%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-软件测试/Appium-Demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -252,7 +595,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/09/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Selenium-driver/">待用</a>
+      <a class="article-title" href="/2020/12/09/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/Selenium-driver/">Selenium-driver下载地址</a>
     </h1>
   
 
@@ -265,7 +608,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="火狐浏览器FireFox下载地址（下载相应浏览器版本的driver）"><a href="#火狐浏览器FireFox下载地址（下载相应浏览器版本的driver）" class="headerlink" title="火狐浏览器FireFox下载地址（下载相应浏览器版本的driver）"></a>火狐浏览器FireFox下载地址（下载相应浏览器版本的driver）</h2><blockquote>
+<p><a href="https://npm.taobao.org/mirrors/geckodriver/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/geckodriver/</a></p>
+</blockquote>
+<h2 id="谷歌浏览器Chrome下载地址（下载相应浏览器版本的driver）"><a href="#谷歌浏览器Chrome下载地址（下载相应浏览器版本的driver）" class="headerlink" title="谷歌浏览器Chrome下载地址（下载相应浏览器版本的driver）"></a>谷歌浏览器Chrome下载地址（下载相应浏览器版本的driver）</h2><blockquote>
+<p><a href="https://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/chromedriver/</a></p>
+</blockquote>
+
       
 
       
@@ -279,6 +628,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">driver</a>
         		</li>
       		
 		</ul>
@@ -974,191 +1327,6 @@
 
 
   
-    <article id="post-软件测试/软件测试缺陷管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BC%BA%E9%99%B7%E7%AE%A1%E7%90%86/">软件测试-缺陷管理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BC%BA%E9%99%B7%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-11-10T02:42:46.857Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="缺陷管理"><a href="#缺陷管理" class="headerlink" title="缺陷管理"></a>缺陷管理</h2><ul>
-<li>缺陷是一种泛称，它可以指功能的错误，也可以指性能低下，易用性差等</li>
-<li>并不是所有的测试人员都能提交开发认可的缺陷，也不是测试员在任何时候都能提交被开发认可的缺陷</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BC%BA%E9%99%B7%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Debug Management</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Note//" class="article-tag-list-link color5">Note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BC%BA%E9%99%B7%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-软件测试/软件测试面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/">软件测试-面试题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-11-10T02:42:46.751Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="单元测试、集成测试、系统测试、验收测试、回归测试"><a href="#单元测试、集成测试、系统测试、验收测试、回归测试" class="headerlink" title="单元测试、集成测试、系统测试、验收测试、回归测试"></a>单元测试、集成测试、系统测试、验收测试、回归测试</h2>
-        
-          <a class="article-more-a" href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software Test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Note//" class="article-tag-list-link color5">Note</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Note/Case-Interview//" class="article-tag-list-link color5">Case Interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/10/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1275,6 +1443,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Software Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">driver</a>
               </li>
              
               <li class="article-tag-list-item">
